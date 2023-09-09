@@ -20,6 +20,8 @@ const Market = ({ simplified }) => {
     setCryptos(filteredData);
   }, [cryptosList, searchTerm]);
 
+  {console.log(cryptos);}
+
   if (isFetching) return "Loading...";
 
   return (
@@ -33,9 +35,9 @@ const Market = ({ simplified }) => {
       </div>
       )}
       <Row gutter={[32, 32]} className="crypto-card-container">
-        {cryptos?.map((currency) => (
-          <Col xs={24} sm={12} lg={5} className="crypto-card" key={currency.id}>
-            <Link to={`/crypto/${currency.id}`}>
+        {cryptos?.map((currency, i) => (
+          <Col xs={24} sm={12} lg={5} className="crypto-card" key={i}>
+            <Link to={`/crypto/${currency.uuid}`}>
               <Card
                 title={`${currency.rank}. ${currency.name}`}
                 extra={<img className="crypto-image" src={currency.iconUrl} />}
