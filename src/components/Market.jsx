@@ -4,6 +4,7 @@ import { Col, Input, Row } from "antd";
 import { Link } from "react-router-dom";
 import Card from "antd/es/card/Card";
 import millify from "millify";
+import Loader from "./Loader";
 
 const Market = ({ simplified }) => {
   const count = simplified ? 10 : 100;
@@ -22,7 +23,7 @@ const Market = ({ simplified }) => {
 
   {console.log(cryptos);}
 
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Loader />;
 
   return (
     <>

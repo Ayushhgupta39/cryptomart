@@ -3,6 +3,7 @@ import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
 import { Avatar, Card, Col, Row, Select, Typography } from "antd";
 import moment from "moment/moment";
 import { useGetCryptosQuery } from "../services/cryptoAPI";
+import Loader from "./Loader";
 const { Text, Title } = Typography;
 
 const { Option } = Select;
@@ -18,7 +19,7 @@ const News = ({ simplified }) => {
   });
   const { data } = useGetCryptosQuery(100);
 
-  if (!cryptoNews?.value) return "Loading...";
+  if (!cryptoNews?.value) return <Loader />;
 
   return (
     <div>

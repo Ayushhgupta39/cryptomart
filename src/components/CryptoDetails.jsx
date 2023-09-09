@@ -16,6 +16,7 @@ import {
 } from "@ant-design/icons";
 import { Col, Row, Select, Typography } from "antd";
 import LineChart from "./LineChart";
+import Loader from "./Loader";
 const { Option } = Select;
 const { Title, Text } = Typography;
 
@@ -100,7 +101,7 @@ const CryptoDetails = () => {
     },
   ];
 
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Loader />;
 
   return (
     <Col className="coin-detail-container">
