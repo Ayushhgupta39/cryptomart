@@ -11,8 +11,6 @@ const Market = ({ simplified }) => {
   const [cryptos, setCryptos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  console.log(cryptos);
-
   useEffect(() => {
 
     const filteredData = cryptosList?.data?.coins.filter((coin) =>
