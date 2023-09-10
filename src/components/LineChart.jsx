@@ -1,9 +1,9 @@
 import { Col, Row, Typography } from "antd";
 import React from "react";
 import { Line } from "react-chartjs-2";
-import {CategoryScale} from 'chart.js'; 
-import Chart from 'chart.js/auto';
-Chart.register(CategoryScale);  
+import { CategoryScale } from "chart.js";
+import Chart from "chart.js/auto";
+Chart.register(CategoryScale);
 
 const { Title } = Typography;
 
@@ -16,8 +16,12 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
   }
 
   for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
-    coinTimestamp.push(new Date(coinHistory?.data?.history[i].timestamp).toLocaleDateString());
+    coinTimestamp.push(
+      new Date(coinHistory?.data?.history[i].timestamp).toLocaleDateString()
+    );
   }
+
+  console.log("CoinPrice:", coinPrice, "CoinTimestamp: ", coinTimestamp);
 
   const data = {
     labels: coinTimestamp,
@@ -32,17 +36,24 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
     ],
   };
 
-  console.log(data);
-
   const options = {
     scales: {
-        x: {
-            type: 'linear'
+      x: {
+        type: "category", // Use CategoryScale for X-axis
+        labels: coinTimestamp,
+        title: {
+          display: true,
+          text: "Time", // Customize the X-axis label
         },
-        y: {
-            type: 'linear'
-        }
-    }
+      },
+      y: {
+        type: "linear", // Use LinearScale for Y-axis
+        title: {
+          display: true,
+          text: "Price in USD", // Customize the Y-axis label
+        },
+      },
+    },
   };
 
   return (
