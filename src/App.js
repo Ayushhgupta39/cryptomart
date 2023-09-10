@@ -3,7 +3,6 @@ import { Route, Link, Routes } from "react-router-dom";
 import {
   Navbar,
   Homepage,
-  Exchanges,
   Market,
   CryptoDetails,
   News,

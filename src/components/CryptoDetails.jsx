@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import HTMLReactParser from "html-react-parser";
 import { useParams } from "react-router-dom";
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from "../services/cryptoAPI";
 import millify from "millify";
